@@ -659,8 +659,8 @@ function akce_nahled() {
 
                     $arr_audit = array('vytisknut' => "ano", 'date_vytisknut' => time(), 'date' => time());
                     dibi::query('UPDATE [prevent_audit] SET', $arr_audit, 'WHERE [id] = %i', $row['id']);
-                    
-                    
+
+
                     //tisknu si graf auditu
                     include_once "./module_include/graph_class/graf_checklist_save.php";
                     save($row['id']);
