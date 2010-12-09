@@ -665,7 +665,7 @@ function akce_nahled() {
                     include_once "./module_include/graph_class/graf_checklist_save.php";
                     save($row['id']);
                     //KONEC tisknu si graf auditu
-sgdgsdg
+
                     tisk_pdf1($row['id']);
 
                     balit_fotky($row['id']);
