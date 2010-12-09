@@ -1,0 +1,13 @@
+*** Systém GUARDIAN ***
+** Informace o fotografiích v archivu **
+#ID audit: 
+Firma: firma1
+Provozovna: firma1pobocka1
+
+Vytvořeno: 19:25:42 25.11.2010
+Vytvořil: kovar
+
+
+** Konec informací o fotografiích v archivu  ** 
+Doba vytváření archivu fotografií: 0 sec
+*** Systém GUARDIAN ***

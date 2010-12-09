@@ -1,0 +1,67 @@
+*** Systém GUARDIAN ***
+** Informace o fotografiích v archivu **
+#ID audit: 
+Firma: firma1
+Provozovna: firma1pobocka1
+
+Vytvořeno: 18:08:33 13.11.2010
+Vytvořil: kovar
+
+* Název: sdagsdsgsdgdgsd
+Soubor: SP_A0008.jpg
+Datum: 21:16:56 12.11.2010
+Původ: CHECKLIST: 1. Povinnosti a odpovědnosti  
+Komentář: dsg
+
+* Název: sdagsdsgsdgdgsd
+Soubor: SP_A0010.jpg
+Datum: 21:17:03 12.11.2010
+Původ: CHECKLIST: 1. Povinnosti a odpovědnosti  
+Komentář: dsg
+
+* Název: sdg
+Soubor: SP_A0011.jpg
+Datum: 21:17:19 12.11.2010
+Původ: CHECKLIST: 2. Kontrola a monitorování  
+Komentář: dsg
+
+* Název: dsg
+Soubor: SP_A0023.jpg
+Datum: 21:18:27 12.11.2010
+Původ: CHECKLIST: 3. Identifikace a hodnocení rizik, kategorizace prací 
+Komentář: sdg
+
+* Název: dsg
+Soubor: SP_A0026.jpg
+Datum: 21:18:35 12.11.2010
+Původ: CHECKLIST: 19. Technické prostředky 
+Komentář: sdgasdg
+
+* Název: dsgsdgsda
+Soubor: SP_A0030.jpg
+Datum: 21:18:43 12.11.2010
+Původ: CHECKLIST: 19. Technické prostředky 
+Komentář: sdag
+
+* Název: dsgsd
+Soubor: SP_A0050.jpg
+Datum: 21:18:55 12.11.2010
+Původ: PRACOVIŠTĚ: jedna
+Komentář: ddsg
+
+* Název: sdgsdagsd
+Soubor: SP_A0026.jpg
+Datum: 21:19:02 12.11.2010
+Původ: PRACOVIŠTĚ: dva
+Komentář: dsg
+
+* Název: sdg
+Soubor: SP_A0025.jpg
+Datum: 21:19:09 12.11.2010
+Původ: PRACOVIŠTĚ: dva
+Komentář: dsg
+
+
+** Konec informací o fotografiích v archivu  ** 
+Doba vytváření archivu fotografií: 0 sec
+*** Systém GUARDIAN ***

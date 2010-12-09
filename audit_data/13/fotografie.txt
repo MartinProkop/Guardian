@@ -1,0 +1,50 @@
+*** Systém GUARDIAN ***
+** Informace o fotografiích v archivu **
+#ID audit: 
+Firma: firma1
+Provozovna: firma1pobocka1
+
+Vytvořeno: 14:30:55 09.12.2010
+Vytvořil: kovar
+
+* Název: nmg
+Soubor: banksy-glasto.jpg
+Datum: 14:27:17 09.12.2010
+Původ: CHECKLIST: 19. Technické prostředky 
+Komentář: b
+
+
+* Název: sdfzh
+Soubor: banksy-soldiers-painting-peace-sign.jpg
+Datum: 14:27:27 09.12.2010
+Původ: CHECKLIST: 19. Technické prostředky 
+Komentář: egt
+
+* Název: sdfzh
+Soubor: banksy-soldiers-painting-peace-sign.jpg
+Datum: 14:27:27 09.12.2010
+Původ: CHECKLIST: 19. Technické prostředky 
+Komentář: egt
+
+* Název: h
+Soubor: Banksy_west_bank_38308s.jpg
+Datum: 14:27:56 09.12.2010
+Původ: CHECKLIST: 18. Sváření 
+Komentář: klh
+
+* Název: ,jh
+Soubor: plakat.jpg
+Datum: 14:28:12 09.12.2010
+Původ: PRACOVIŠTĚ: jedna
+Komentář: jk
+
+* Název: etg
+Soubor: flowerchucker2.jpg
+Datum: 14:28:29 09.12.2010
+Původ: PRACOVIŠTĚ: dva
+Komentář: weg
+
+
+** Konec informací o fotografiích v archivu  ** 
+Doba vytváření archivu fotografií: 0 sec
+*** Systém GUARDIAN ***
