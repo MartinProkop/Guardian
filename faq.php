@@ -23,3 +23,5 @@ elseif($_GET['id'] == "prehled_verzi_systemu")
 //KONEC OBSAHU STRÁNKY
 patka();
 ?>
+
+nco si pripíse
