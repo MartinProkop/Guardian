@@ -254,16 +254,10 @@ function menu($parametr, $active_menu)
 			<h5>Obecné</h5>
 			<ul>
 				<li".$active['hlavni_strana']."><a href=\"./index.php\">Hlavní stránka</a></li>
-                                <li".$active['ukoly']."><a href=\"./ukoly.php\" title=\"[nové/akutní/čekající/splněné/odmítnuté]\">Úkoly ".zprava_o_ukolech()."</a></li>
                                 <li".$active['firmy']."><a href=\"./firmy_koordinator.php\">Klienti</a>  (<a href=\"./firmy_koordinator.php?action=pridat\">přidat</a>)</li>
                                 <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=nedokoncene_technik\" title=\"[audity nedokončené technikem]\">Nedokončené technikem [".o_auditech_filtr("koordinator", "nedokoncene_technik")."]</a></li>
                                 <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=potvrzene_firma\" title=\"[audity nedokončené technikem]\">Dokončit audit [".o_auditech_filtr("koordinator", "potvrzene_firma")."]</a></li>
-                                <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=dokoncene\" title=\"[audity nedokončené technikem]\">Hotové audity [".o_auditech_filtr("koordinator", "dokoncene")."]</a></li>
-                                <li".$active['posta']."><a href=\"./posta.php?id=prijata\">Pošta [".nove_zpravy_v_poste()." nové]</a></li>
-                                <li".$active['zapisnik']."><a href=\"./zapisnik.php\">Zápisník</a></li>
-                                <li".$active['nastenka']."><a href=\"./nastenka.php\">Nástěnka [".nove_zpravy_v_nastence_koordinator()." nové]</a></li>
-                                <li".$active['nastaveni']."><a href=\"./nastaveni.php\">Nastavení</a></li>
-                                <li".$active['uzivatele']."><a href=\"./uzivatele.php\">Uživatelé</a></li>";
+                                <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=dokoncene\" title=\"[audity nedokončené technikem]\">Hotové audity [".o_auditech_filtr("koordinator", "dokoncene")."]</a></li>";
 
 			echo "</ul>
 			</div>";
@@ -312,17 +306,12 @@ function menu($parametr, $active_menu)
 			<h5>Obecné</h5>
 			<ul>
 				<li".$active['hlavni_strana']."><a href=\"./index.php\">Hlavní stránka</a></li>
-                                <li".$active['ukoly']."><a href=\"./ukoly.php\" title=\"[nové/akutní/čekající/splněné/odmítnuté]\">Úkoly ".zprava_o_ukolech()."</a></li>
+
                                 <li".$active['firmy']."><a href=\"./firmy_technik.php\">Klienti</a></li>
                                 <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=nezahajene_technik\" title=\"\">Nezahájené audity [".o_auditech_filtr("technik", "nezahajene_technik")."]</a></li>
                                 <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=nedokoncene_technik\" title=\"\">Prováděné audity [".o_auditech_filtr("technik", "nedokoncene_technik")."]</a></li>
                                 <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=dokoncene_technik\" title=\"\">Předané audity [".o_auditech_filtr("technik", "dokoncene_technik")."]</a></li>
                                 <li".$active['']."><a href=\"./sprava_auditu.php?id=filtr&filtr=dokoncene\" title=\"\">Hotové audity [".o_auditech_filtr("koordinator", "dokoncene")."]</a></li>
-                                <li".$active['posta']."><a href=\"./posta.php?id=prijata\">Pošta [".nove_zpravy_v_poste()." nové]</a></li>
-                                <li".$active['zapisnik']."><a href=\"./zapisnik.php\">Zápisník</a></li>
-                                <li".$active['nastenka']."><a href=\"./nastenka.php\">Nástěnka [".nove_zpravy_v_nastence_technik()." nové]</a></li>
-                                <li".$active['nastaveni']."><a href=\"./nastaveni.php\">Nastavení</a></li>
-                                <li".$active['uzivatele']."><a href=\"./uzivatele.php\">Uživatelé</a></li>
 			</ul>
 			</div>";
 			

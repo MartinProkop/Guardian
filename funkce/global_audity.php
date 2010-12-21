@@ -402,8 +402,8 @@ function menu_audit($id_audit, $prava) {
         if ($prava == "koordinator") {
             echo "<a href=\"./sprava_auditu.php?id=upravit_audit&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&upravit_audit=" . $row['id'] . "\"><img src=\"./design/edit.png\" alt=\"upravit\" title=\"upravit\"/></a><br />";
         } elseif ($prava == "technik") {
-            echo "<a href=\"./sprava_auditu.php?id=enter&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&prijmout_audit=" . $row['id'] . "\" onclick=\"if(confirm('Přijímáte audit?')) location.href='./sprava_auditu.php?id=enter&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&prijmout_audit=" . $row['id'] . "'; return(false);\"><img src=\"./design/true.png\" alt=\"přijmout\" title=\"přijmout\"/></a</a><br />";
-            echo "<a href=\"./sprava_auditu.php?id=enter&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&neprijmout_audit=" . $row['id'] . "\" onclick=\"if(confirm('Nepřijímáte audit? Okomentujte prosím audit a v komentáři vysvětlete důvod pro nepřijetí auditu.')) location.href='./sprava_auditu.php?id=enter&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&neprijmout_audit=" . $row['id'] . "'; return(false);\"><img src=\"./design/false.png\" alt=\"nepřijmout\" title=\"nepřijmout\"/></a><br />";
+            echo "<a href=\"./sprava_auditu.php?id=detaily_auditu&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&audit=" . $row['id'] . "&prijmout_audit=" . $row['id'] . "\" onclick=\"if(confirm('Přijímáte audit?')) location.href='./sprava_auditu.php?id=detaily_auditu&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&audit=" . $row['id'] . "&prijmout_audit=" . $row['id'] . "'; return(false);\"><img src=\"./design/true.png\" alt=\"přijmout\" title=\"přijmout\"/></a</a><br />";
+            echo "<a href=\"./sprava_auditu.php?id=detaily_auditu&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&audit=" . $row['id'] . "&neprijmout_audit=" . $row['id'] . "\" onclick=\"if(confirm('Nepřijímáte audit? Okomentujte prosím audit a v komentáři vysvětlete důvod pro nepřijetí auditu.')) location.href='./sprava_auditu.php?id=detaily_auditu&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&audit=" . $row['id'] . "&neprijmout_audit=" . $row['id'] . "'; return(false);\"><img src=\"./design/false.png\" alt=\"nepřijmout\" title=\"nepřijmout\"/></a><br />";
         } elseif ($prava == "firma_admin") {
             echo "<a href=\"./sprava_auditu.php?id=upravit_audit_firma&firma=" . get_id_firma_z_provozovny($row['id_provozovna']) . "&provozovna=" . $row['id_provozovna'] . "&upravit_audit_firma=" . $row['id'] . "\"><img src=\"./design/edit.png\" alt=\"upravit\" title=\"upravit\"/></a><br />";
         } elseif ($prava == "firma_normal") {
@@ -998,16 +998,16 @@ function zadat_audit($link) {
         $arr_log = array('text' => 'Vytvořen nový audit', 'id_audit' => $row['id'], 'id_provozovna' => $_GET['provozovna']);
         vytvor_log_audit($arr_log);
         $zprava = "Právě Vám byl koordinátorem " . $_SESSION['jmeno_usr'] . " přidělen audit, přijměte ho";
-        $link = "./sprava_auditu.php?id=detaily_auditu&firma=" . get_id_firma_z_audit($row['id']) . "&provozovna=" . get_id_provozovna_z_audit($row['id']) . "&audit=" . $row['id'];
-        $arr_ukol = array('deadline' => '', 'text' => 'Byl Vám přidělen audit', 'popis' => $zprava, 'link' => $link, 'ad' => $_POST['technik'], 'zadal_jmeno' => $_SESSION['jmeno_usr']);
+        $link_ukol = "./sprava_auditu.php?id=detaily_auditu&firma=" . get_id_firma_z_audit($row['id']) . "&provozovna=" . get_id_provozovna_z_audit($row['id']) . "&audit=" . $row['id'];
+        $arr_ukol = array('deadline' => '', 'text' => 'Byl Vám přidělen audit', 'popis' => $zprava, 'link' => $link_ukol, 'ad' => $_POST['technik'], 'zadal_jmeno' => $_SESSION['jmeno_usr']);
         novy_ukol($arr_ukol);
-
         if ($link == "uzivatelske_ukoly")
-            echo "<div class=\"obdelnik\"><h4>Audit vytvořen!</h4><p>Zadat <a href=\"./uzivatelske_ukoly.php?zadat_audit=ano\">další audit</a>.</p></div>";
+            echo "<div class=\"obdelnik\"><h4>Audit vytvořen!</h4><p>Zadat <a href=\"./uzivatelske_ukoly.php?zadat_audit=ano&firma=" . $_POST['firma'] . "&provozovna=" . $_POST['provozovna'] . "\">Zadat další audit</a>.</p></div>";
         elseif ($link == "zadat_audit")
-            echo "<div class=\"obdelnik\"><h4>Audit vytvořen!</h4><p>Zadat <a href=\"./sprava_auditu.php?id=zadat_audit\">další audit</a>.</p></div>";
+            echo "<div class=\"obdelnik\"><h4>Audit vytvořen!</h4><p>Zadat <a href=\"./sprava_auditu.php?id=zadat_audit&firma=" . $_POST['firma'] . "&provozovna=" . $_POST['provozovna'] . "\">Zadat další audit</a>.</p></div>";
+
         elseif ($link == "firma_zadana")
-            echo "<div class=\"obdelnik\"><h4>Audit vytvořen!</h4><p>Zadat <a href=\"./sprava_auditu.php?id=enter&firma=" . $_POST['firma'] . "&provozovna=" . $_POST['provozovna'] . "\">další audit</a>.</p></div>";
+            echo "<div class=\"obdelnik\"><h4>Audit vytvořen!</h4><p>Zadat <a href=\"./sprava_auditu.php?id=enter&firma=" . $_POST['firma'] . "&provozovna=" . $_POST['provozovna'] . "\">Zadat další audit</a>.</p></div>";
     }
     else {
         if ($_POST['firma'])
@@ -1133,7 +1133,7 @@ function zprava_o_auditu($id_audit) {
     echo "<div class=\"zprava_audit\">";
     echo "<table class=\"table\" style=\"margin-left: auto; margin-right: auto;text-align:center;\" >
         <tr><td><h3 style=\"color:red;\">" . $row_klient['nazev'] . "</h3></td></tr>
-        <tr><td><h5 style=\"color:red;\">" . $row_provozovna['nazev'] . ", ičo: " . $row_klient['ico'] . ", " . $row_klient['adresa'] . ", " . $row_provozovna['adresa'] . "</h5></td></tr>
+        <tr><td><h5 style=\"color:red;\">" . $row_klient['adresa'] . ", " . $row_klient['ico'] . ", " . $row_provozovna['nazev'] . " , " . $row_provozovna['adresa'] . "</h5></td></tr>
         </table>";
 
     echo "<img src=\"" . $row_klient['logo'] . "\"/ width=\"200px\"><br />";

@@ -68,7 +68,7 @@ if (login ()) {
             echo "<h4>Pracoviště</h4>";
 
             echo "<h5>Výběr pracovišťe</h5>";
-            echo echo_pracoviste_k_auditu_nahled($_GET['id_audit'], $prepinac);
+            echo echo_pracoviste_k_auditu_nahled($_GET['id_audit'], "disabled");
 
             echo "<p><br />Zpět na <a href=\"./nahled_audit.php?id=vybrat_oblast&id_audit=" . $_GET['id_audit'] . "\" >hlavní stranu auditu</a>.</p>";
         } else {

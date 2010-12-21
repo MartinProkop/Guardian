@@ -259,17 +259,18 @@ function tyka_netyka_neshoda($audit) {
 
     $resultx = dibi::query('SELECT * FROM [prevent_audit_neshody] WHERE [id_audit] = %i', $audit);
     while ($rowx = $resultx->fetch()) {
-        if ($pole[$rowx[id]] == "ano" && $rowx['komentar'] != "" && $rowx['opatreni'] != "") {
+        //   if ($pole[$rowx[id]] == "ano" && $rowx['komentar'] != "" && $rowx['opatreni'] != "") {
+        if ($pole[$rowx[id]] == "ano" && $rowx['opatreni'] != "") {
             dibi::query('UPDATE [prevent_audit_neshody] SET [date] = %i', Time(), ',[stav] = %s', "zpracovano", 'WHERE [id] = %i', $rowx[id]);
             $arr_log = array('text' => 'Upraven audit - neshoda - potvrzena', 'id_audit' => $audit, 'id_provozovna' => $row['id_provozovna']);
             vytvor_log_audit($arr_log);
-        } else {
+        } elseif($pole[$rowx[id]] == "ano" && $rowx['opatreni'] = "") {
             $varovani = true;
         }
     }
 
-    if($varovani)
-                echo "<div class=\"obdelnik\"><h5>Některé neshody nebyly označeny za provedené</h5><p>Je potřeba aby neshody měli vyplněné položky <em>komentář</em> a <em>opatření</em>.</p></div>";
+    if ($varovani)
+        echo "<div class=\"obdelnik\"><h5>Některé neshody nebyly označeny za provedené</h5><p>Je potřeba aby neshody měli vyplněnou položku <em>opatření</em>.</p></div>";
 }
 ?>
 

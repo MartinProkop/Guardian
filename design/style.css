@@ -586,11 +586,11 @@ div.navbox div.impressum div.active {
 }
 
 .tlacitko {
-    font-size:11px;
+    font-size:14px;
     font-weight: bold;
     color:#000000;
     background-color:#f9f9ff;
-    border:solid 1px #c0d3e2;
+    border:solid 4px #c0d3e2;
     padding:2px;
     margin:5px;
 }

@@ -23,6 +23,7 @@ if (login() && ($_SESSION['prava_usr'] == "admin" || $_SESSION['prava_usr'] == "
         if ($_GET['id'] != "filtr")
             prehled_auditu_koordinator();
         if (!$_GET['firma']
+
             )prehled_auditu_koordinator_dva();
     }
     elseif ($_GET['id'] == "filtr") {
@@ -41,6 +42,10 @@ if (login() && ($_SESSION['prava_usr'] == "admin" || $_SESSION['prava_usr'] == "
     } elseif ($_GET['id'] == "detaily_auditu") {
         if (prava_k_auditu($_GET['audit'], $_SESSION['id_usr'])) {
             echo "<h3>Detaily auditu</h3>";
+            if ($_GET['prijmout_audit'])
+                prijmout_audit($_GET['prijmout_audit']);
+            if ($_GET['neprijmout_audit'])
+                neprijmout_audit($_GET['neprijmout_audit']);
             detaily_auditu($_GET['audit'], "koordinator");
         } else {
             echo "<h4>Nemáte právo pracovat se zvoleným auditem!</h4><p>Přejděte zpět k volbě auditu.</p>";
@@ -53,14 +58,12 @@ if (login() && ($_SESSION['prava_usr'] == "admin" || $_SESSION['prava_usr'] == "
         $_POST['provozovna'] = $_GET['provozovna'];
 
     if ($_GET['id'] == "enter") {
-        if ($_GET['prijmout_audit'])
-            prijmout_audit($_GET['prijmout_audit']);
-        if ($_GET['neprijmout_audit'])
-            neprijmout_audit($_GET['neprijmout_audit']);
+
         echo "<h3>Přehled auditů</h3>";
         if ($_GET['id'] != "filtr")
             prehled_auditu_technik();
         if (!$_GET['firma']
+
             )prehled_auditu_technik_dva();
     }
     elseif ($_GET['id'] == "filtr") {
@@ -76,6 +79,10 @@ if (login() && ($_SESSION['prava_usr'] == "admin" || $_SESSION['prava_usr'] == "
     } elseif ($_GET['id'] == "detaily_auditu") {
         if (prava_k_auditu($_GET['audit'], $_SESSION['id_usr'])) {
             echo "<h3>Detaily auditu</h3>";
+            if ($_GET['prijmout_audit'])
+                prijmout_audit($_GET['prijmout_audit']);
+            if ($_GET['neprijmout_audit'])
+                neprijmout_audit($_GET['neprijmout_audit']);
             detaily_auditu($_GET['audit'], "technik");
         } else {
             echo "<h4>Nemáte právo pracovat se zvoleným auditem!</h4><p>Přejděte zpět k volbě auditu.</p>";

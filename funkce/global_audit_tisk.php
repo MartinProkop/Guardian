@@ -87,7 +87,7 @@ function tisk_pdf1($id_audit) {
             <td class=\"nadpis\"> $row_klient[nazev] </td>
         </tr>
         <tr>
-            <td class=\"nadpis_small\">$row_provozovna[nazev], ičo: $row_klient[ico], $row_klient[adresa], $row_provozovna[adresa]</td>
+            <td class=\"nadpis_small\">$row_klient[adresa], ičo: $row_klient[ico], $row_provozovna[nazev] , $row_provozovna[adresa]</td>
         </tr>
         </table><br /><br />
 

@@ -1,4 +1,5 @@
 <?php
+
 //                                <script src=\"./module_include/validate/jquery.js\" type=\"text/javascript\"></script>
 function hlavicka() {
     echo "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.1//EN\"\"http://www.w3.org/TR/xhtml1/DTD/xhtml11.dtd\">
@@ -100,9 +101,17 @@ function nadpis_horni($a, $b) {
 }
 
 function navigace_horni() {
-    echo "<div class=\"quicknav\">
-	<a href=\"./index.php\">Hlavní stránka</a> | <a href=\"./novinky.php\">Novinky [" . nove_novinky() . " nové]</a> | <a href=\"./faq.php?id=o_systemu\">Nápověda</a> ";
+    echo "<div class=\"quicknav\">";
     if (login ()) {
+        if ($_SESSION['prava_usr'] != "firma") {
+            
+	echo "<a href=\"./index.php\">Hlavní stránka</a> | <a href=\"./ukoly.php\" title=\"[nové/akutní/čekající/splněné/odmítnuté]\">Úkoly ".zprava_o_ukolech()."</a> | <a href=\"./zapisnik.php\">Zápisník</a>  | <a href=\"./posta.php?id=prijata\">Pošta [".nove_zpravy_v_poste()." nové]</a> | <a href=\"./nastenka.php\">Nástěnka [".nove_zpravy_v_nastence_technik()." nové]</a> | <a href=\"./uzivatele.php\">Uživatelé</a> | <a href=\"./nastaveni.php\">Nastavení</a> | <a href=\"./novinky.php\">Novinky [" . nove_novinky() . " nové]</a> ";
+
+        }
+        else
+        {
+            echo "<a href=\"./index.php\">Hlavní stránka</a> ";
+        }
         echo "| <a href=\"./index.php?action=logout\">Odhlásit [ " . $_SESSION['jmeno_usr'] . " ]</a>";
         if (!strpos($_SERVER['REQUEST_URI'], "provest_audit.php")) {
             echo "<script type=\"text/javascript\">
@@ -115,7 +124,7 @@ function navigace_horni() {
 		</script> ";
         }
     } else {
-        echo "| <a href=\"./index.php\">Přihlásit</a>";
+        echo "<a href=\"./index.php\">Hlavní stránka</a> | <a href=\"./novinky.php\">Novinky [" . nove_novinky() . " nové]</a> |  <a href=\"./uzivatele.php\">Nápověda</a> | <a href=\"./index.php\">Přihlásit</a>";
     }
 }
 

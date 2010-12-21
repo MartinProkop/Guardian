@@ -24,8 +24,7 @@ function kontrola_pobocka_nahled() {
                 <label for=\"email\">email</label><br />
 		<input name=\"email\" id=\"email\" size=\"50\" value=\"" . $row['email'] . "\" class=\"formular\" $disabled /><br />
 		<label for=\"poznamky\">poznámky</label><br />
-		<textarea name=\"poznamky\" id=\"poznamky\" class=\"formular\"  rows=\"10\" cols=\"50\" $disabled>" . $row['poznamky'] . "</textarea><br />
-		<input class=\"tlacitko$disabled\" type=\"submit\" value=\"potvrdit\" $disabled />
+		<textarea name=\"poznamky\" id=\"poznamky\" class=\"formular\"  rows=\"10\" cols=\"50\" $disabled>" . $row['poznamky'] . "</textarea>
 		</fieldset>
 		</form>";
 }
@@ -253,11 +252,13 @@ function echo_pracoviste_k_auditu_nahled($id, $prepinac) {
             $text = "zpracováno";
             $styl = "class=\"green\"";
             $text_netykase = "";
-            $text_akce = "<a href=\"./nahled_audit.php?id=pracoviste_proved&id_audit=" . $id . "&id_pracoviste=" . $row_pracoviste2['id'] . "\">prohlédnout</a><br />";
+            if ($prepinac != "disabled")
+                $text_akce = "<a href=\"./nahled_audit.php?id=pracoviste_proved&id_audit=" . $id . "&id_pracoviste=" . $row_pracoviste2['id'] . "\">prohlédnout</a><br />";
         } elseif ($row_pracoviste3['stav'] == "netykase") {
             $text = "netýká se";
             $styl = "class=\"green\"";
-            $text_netykase = "<a href=\"./nahled_audit.php?id=pracoviste&id_audit=" . $id . "&netykase=" . $row_pracoviste2['id'] . "\">týká se</a>";
+            if ($prepinac != "disabled")
+                $text_netykase = "<a href=\"./nahled_audit.php?id=pracoviste&id_audit=" . $id . "&netykase=" . $row_pracoviste2['id'] . "\">týká se</a>";
             $text_akce = "";
         }
         echo "<tr>
@@ -378,8 +379,7 @@ function provest_audit_pracoviste_nahled($id_audit, $id_pracoviste) {
         $checked_q_osvetleni_dostatecne_ne = "checked";
     echo "<input type=\"radio\" id=\"q_osvetleni_dostatecne_ano\" $checked_q_osvetleni_dostatecne_ano name=\"q_osvetleni_dostatecne\" value=\"ano\" $disabled><label for=\"q_osvetleni_dostatecne_ano\">ano</label> / <input type=\"radio\" id=\"q_osvetleni_dostatecne_ne\" $checked_q_osvetleni_dostatecne_ne  name=\"q_osvetleni_dostatecne\" value=\"ne\" $disabled><label for=\"q_osvetleni_dostatecne_ne\">ne</label><br />
 		<label for=\"poznamky\">poznámky</label><br />
-		<textarea name=\"poznamky\" id=\"poznamky\" class=\"formular\" rows=\"10\" cols=\"50\" $disabled>" . $row['poznamky'] . "</textarea><br />
-                <input class=\"tlacitko$disabled\" id=\"send\" type=\"submit\" value=\"potvrdit\" $disabled> <a href=\"./nahled_audit.php?id=pracoviste&id_audit=" . $id_audit . "\">zpět na audit pracovišť</a>
+		<textarea name=\"poznamky\" id=\"poznamky\" class=\"formular\" rows=\"10\" cols=\"50\" $disabled>" . $row['poznamky'] . "</textarea>
 		</fieldset>
 		</form>";
 }
@@ -508,8 +508,7 @@ function provest_neshoda_nahled($id) {
                  <label for=\"komentar\">Komentář</label><br />
                  <textarea name=\"komentar\" id=\"komentar\" class=\"formular\" rows=\"10\" cols=\"50\" $disabled>" . $row_neshody['komentar'] . "</textarea><br />
                 <label for=\"opatreni\">Návrh opatření</label><br />
-		<textarea name=\"opatreni\" id=\"opatreni\" class=\"formular\" rows=\"10\" cols=\"50\" $disabled>" . $row_neshody['opatreni'] . "</textarea><br />";
-    echo "       <input class=\"tlacitko$disabled\" id=\"send\" type=\"submit\" value=\"uložit\" $disabled><a href=\"./nahled_audit.php?id=neshody&id_audit=" . $_GET['id_audit'] . "\">zpět na neshody</a>
+		<textarea name=\"opatreni\" id=\"opatreni\" class=\"formular\" rows=\"10\" cols=\"50\" $disabled>" . $row_neshody['opatreni'] . "</textarea>
 		</fieldset>
 		</form>";
 }
@@ -546,8 +545,7 @@ function echo_protokol_k_auditu_nahled($id_audit) {
 		<label for=\"zhodnoceni\">stručné slovní zhodnocení auditu s upozorněním na nejdůležitější neshody a doporučení dalšího postupu</label><br />
                 <textarea name=\"zhodnoceni\" id=\"zhodnoceni\" class=\"formular\" rows=\"10\" cols=\"50\" $disabled_celek>" . $row2['zhodnoceni'] . "</textarea><br />
                 <label for=\"uzavrit_celek\">Uzavřít audit! Audit bude označen za provedený a předán koordinátorovi k připomínkování. Již ho dále nebudete moct editovat.</label><br />
-                <input type=\"checkbox\" id=\"uzavrit_celek\" class=\"formular\" name=\"uzavrit_celek\" value=\"ano\" " . $uzavren_celek . " $disabled_celek><br />
-                <input type=\"submit\" class=\"tlacitko$disabled_celek\" value=\"uložit\" $disabled_celek/>
+                <input type=\"checkbox\" id=\"uzavrit_celek\" class=\"formular\" name=\"uzavrit_celek\" value=\"ano\" " . $uzavren_celek . " $disabled_celek>
                 </fieldset>
 		</form>";
 }

@@ -267,6 +267,10 @@ function provest_audit_pracoviste($id_audit, $id_pracoviste) {
             'q_klimatizovano' => $_POST['q_klimatizovano'], 'vytapeni' => $_POST['vytapeni'], 'vytapeni_select' => $vytapenix, 'odsavani' => $_POST['odsavani'], 'osvetleni' => $_POST['osvetleni'],
             'q_osvetleni_dostatecne' => $_POST['q_osvetleni_dostatecne'], 'poznamky' => $_POST['poznamky']);
         dibi::query('UPDATE [prevent_firmy_pracoviste] SET', $arr, 'WHERE [id] = %i', $id_pracoviste);
+
+        $arr = array('zhodnoceni' => $_POST['zhodnoceni'], 'stav' => "zpracovano", 'date' => Time());
+        dibi::query('UPDATE [prevent_audit_pracoviste] SET', $arr, 'WHERE [id_pracoviste] = %i', $id_pracoviste, 'AND [id_audit] = %i', $id_audit);
+        dibi::query('UPDATE [prevent_audit] SET [date_stav_pracoviste] = %i', Time(), 'WHERE [id] = %i', $id_audit);
     } elseif ($_POST['sent'] && $_POST['neshoda'] == "neshoda" && $_POST['navrh'] == "návrh opatření") {
         $zobraz_audit = false;
         $arr_log = array('text' => 'Audit byl upraven - kontrola pracoviště ' . $row_pracoviste2['jmeno'] . '.', 'id_audit' => $id_audit, 'id_provozovna' => $row['id_provozovna']);
@@ -301,7 +305,7 @@ function provest_audit_pracoviste($id_audit, $id_pracoviste) {
         echo "<div class=\"obdelnik\"><h5>Audit pracoviště upraven</h5><p>Pokračujte na <a href=\"./provest_audit.php?id=pracoviste&id_audit=" . $id_audit . "\">audit pracovišť</a>.</p></div>";
     }
 
-    if($zobraz_audit) {
+    if ($zobraz_audit) {
 
         $disabled = "";
         $uzavren = "";
@@ -311,8 +315,8 @@ function provest_audit_pracoviste($id_audit, $id_pracoviste) {
             $uzavren = "checked";
             $disabled = "disabled";
         }
-    $result_pracoviste = dibi::query('SELECT * FROM [prevent_audit_pracoviste] WHERE [id_pracoviste] = %i', $id_pracoviste, 'AND [id_audit] = %i', $id_audit);
-    $row_pracoviste = $result_pracoviste->fetch();
+        $result_pracoviste = dibi::query('SELECT * FROM [prevent_audit_pracoviste] WHERE [id_pracoviste] = %i', $id_pracoviste, 'AND [id_audit] = %i', $id_audit);
+        $row_pracoviste = $result_pracoviste->fetch();
         $result = dibi::query('SELECT * FROM [prevent_firmy_pracoviste] WHERE [id] = %i', $_GET['id_pracoviste']);
         $row = $result->fetch();
 
