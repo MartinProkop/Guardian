@@ -4,8 +4,9 @@ dibi::connect(array(
     'driver'   => 'mysql',
     'host'     => 'localhost',
     'username' => 'root',
-    'password' => 'root',
+    'password' => '',
     'database' => 'prevent',
     'charset'  => 'utf8',
 ));
-//přístup k mysql databázi?>
+//přístup k mysql databázi
+?>
